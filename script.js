@@ -65,3 +65,7 @@ next.onclick = function () {
 
     setMonthCalendar(curYear,curMonth);
 }
+
+const input = document.getElementById('birthdate');
+const datepicker = new TheDatepicker.Datepicker(input);
+datepicker.render();

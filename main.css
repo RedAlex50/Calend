@@ -129,3 +129,7 @@ input[type=range][orient=vertical]
     border-radius: 10%;
     
 }
+
+#flatpickr{
+    width: 100px;
+}
