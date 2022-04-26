@@ -133,3 +133,6 @@ input[type=range][orient=vertical]
 #flatpickr{
     width: 100px;
 }
+li.timeleft {
+    list-style: none;
+}

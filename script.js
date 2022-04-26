@@ -66,6 +66,12 @@ next.onclick = function () {
     setMonthCalendar(curYear,curMonth);
 }
 
-const input = document.getElementById('birthdate');
-const datepicker = new TheDatepicker.Datepicker(input);
-datepicker.render();
+function TimeLeft(){
+    var BirthDate = document.getElementById("birthdate").value;    
+    var date1 = new Date();
+    var date2 = new Date(BirthDate);
+    var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    var diffDays = Math.ceil(365*70 - timeDiff / (1000 * 3600 * 24)); 
+    var diffYear = Math.ceil(diffDays / 365);
+    document.getElementById("TimeLeft").innerHTML = diffDays + " дней. Или " + diffYear + " лет.";
+}
