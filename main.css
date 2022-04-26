@@ -1,6 +1,6 @@
 body{
     background: #e0c57b;
-    background: linear-gradient(to bottom,  #e0c57b 0%,#e2947a 100%);
+/*    background: linear-gradient(to bottom,  #e0c57b 0%,#e2947a 100%); */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0c57b', endColorstr='#e2947a',GradientType=0 );
  
 }
