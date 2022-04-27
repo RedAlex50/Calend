@@ -75,3 +75,49 @@ function TimeLeft(){
     var diffYear = Math.ceil(diffDays / 365);
     document.getElementById("TimeLeft").innerHTML = diffDays + " дней. Или " + diffYear + " лет.";
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    // id таймера
+    let timerId = null;
+    // склонение числительных
+    function declensionNum(num, words) {
+      return words[(num % 100 > 4 && num % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][(num % 10 < 5) ? num % 10 : 5]];
+    }
+    // вычисляем разницу дат и устанавливаем оставшееся времени в качестве содержимого элементов
+    function countdownTimer() {    
+        var BirthDate = document.getElementById("birthdate").value;    
+        var date1 = new Date();
+        var date2 = new Date(BirthDate);
+        var diff = 70*365*24*3600*1000 - (date1.getTime() - date2.getTime());
+
+      if (diff <= 0) {
+        clearInterval(timerId);
+      }
+      const years = diff > 0 ? Math.floor(diff / 1000 / 60 / 60 / 24 / 365) : 0;
+      const days = diff > 0 ? Math.floor(diff / 1000 / 60 / 60 / 24) % 365 : 0;
+      const hours = diff > 0 ? Math.floor(diff / 1000 / 60 / 60) % 24 : 0;
+      const minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0;
+      const seconds = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
+      $years.textContent = years < 10? '0' + years : years;
+      $days.textContent = days < 100 ? days < 10 ? '0' + days : days : days;
+      $hours.textContent = hours < 10 ? '0' + hours : hours;
+      $minutes.textContent = minutes < 10 ? '0' + minutes : minutes;
+      $seconds.textContent = seconds < 10 ? '0' + seconds : seconds;
+      $years.dataset.title = declensionNum(years, ['год', 'года', 'лет']);
+      $days.dataset.title = declensionNum(days, ['день', 'дня', 'дней']);
+      $hours.dataset.title = declensionNum(hours, ['час', 'часа', 'часов']);
+      $minutes.dataset.title = declensionNum(minutes, ['минута', 'минуты', 'минут']);
+      $seconds.dataset.title = declensionNum(seconds, ['секунда', 'секунды', 'секунд']);
+    }
+    // получаем элементы, содержащие компоненты даты
+    const $years = document.querySelector('.timer__years');
+    const $days = document.querySelector('.timer__days');
+    const $hours = document.querySelector('.timer__hours');
+    const $minutes = document.querySelector('.timer__minutes');
+    const $seconds = document.querySelector('.timer__seconds');
+    // вызываем функцию countdownTimer
+    countdownTimer();
+    // вызываем функцию countdownTimer каждую секунду
+    timerId = setInterval(countdownTimer, 1000);
+  });
