@@ -28,28 +28,23 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-3">
+            <div class="col-4">
                 <p>
                     Ваша дата рождения: 
                     <input type="date" id="birthdate">
-                    <button onclick="TimeLeft()"> ok</button>
                 </p>
             </div>
-            <div class="col-3">
-                Вам осталось жить:
-                <li class="timeleft" id="TimeLeft">
-                    ____ дней. Или ___ лет.
-                </li>    
-                Проведите с умом оставшееся время.
-            </div>
-            <div class="col-6">
+     
+            <div class="col-8">
                 <div class="timer">
                     <div class="timer__items">
+                        Осталось:
                         <div class="timer__item timer__years">00</div>
                         <div class="timer__item timer__days">000</div>
                         <div class="timer__item timer__hours">00</div>
                         <div class="timer__item timer__minutes">00</div>
                         <div class="timer__item timer__seconds">00</div>
+                        <div class="timer__item timer__millis">00</div>
                     </div>
                 </div>
             </div>
