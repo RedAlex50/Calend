@@ -1,74 +1,4 @@
-let nowDate = new Date(),
-    nowDateNumber = nowDate.getDate(),
-    nowMonth = nowDate.getMonth(),
-    nowYear = nowDate.getFullYear(),
-    container = document.getElementById('month-calendar'),
-    monthContainer = container.getElementsByClassName('month-name')[0],
-    yearContainer = container.getElementsByClassName('year-name')[0],
-    daysContainer = container.getElementsByClassName('days')[0],
-    prev = container.getElementsByClassName('prev')[0],
-    next = container.getElementsByClassName('next')[0],
-    monthName = ['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'];
-
-
-
-let curDate = nowDate.setMonth(nowDate.getMonth() - 1);
-console.log(nowDate.getFullYear());
-
-function setMonthCalendar(year,month) {
-    let monthDays = new Date(year, month + 1, 0).getDate(),
-        monthPrefix = new Date(year, month, 0).getDay(),
-        monthDaysText = '';
-
-    monthContainer.textContent = monthName[month];
-    yearContainer.textContent = year;
-    daysContainer.innerHTML = '';
-
-    if (monthPrefix > 0){
-        for (let i = 1  ; i <= monthPrefix; i++){
-            monthDaysText += '<li></li>';
-        }
-    }
-
-    for (let i = 1; i <= monthDays; i++){
-        monthDaysText += '<li>' + i + '</li>';
-    }
-
-    daysContainer.innerHTML = monthDaysText;
-
-    if (month == nowMonth && year == nowYear){
-        days = daysContainer.getElementsByTagName('li');
-        days[monthPrefix + nowDateNumber - 1].classList.add('date-now');
-    }
-}
-
-setMonthCalendar(nowYear,nowMonth);
-
-prev.onclick = function () {
-    let curDate = new Date(yearContainer.textContent,monthName.indexOf(monthContainer.textContent));
-
-    curDate.setMonth(curDate.getMonth() - 1);
-
-    let curYear = curDate.getFullYear(),
-        curMonth = curDate.getMonth();
-
-    setMonthCalendar(curYear,curMonth);
-}
-
-next.onclick = function () {
-    let curDate = new Date(yearContainer.textContent,monthName.indexOf(monthContainer.textContent));
-
-    curDate.setMonth(curDate.getMonth() + 1);
-
-    let curYear = curDate.getFullYear(),
-        curMonth = curDate.getMonth();
-
-    setMonthCalendar(curYear,curMonth);
-}
-
-
-
-
+// ТАЙМЕР
 document.addEventListener('DOMContentLoaded', function () {
     // id таймера
     let timerId = null;
@@ -78,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     // вычисляем разницу дат и устанавливаем оставшееся времени в качестве содержимого элементов
     function countdownTimer() {    
-        var BirthDate = document.getElementById("birthdate").value;    
+        var BirthDate = document.getElementById("input-birthdate").value;    
         var date1 = new Date();
         var date2 = new Date(BirthDate);
         var diff = 70*365*24*3600*1000 - (date1.getTime() - date2.getTime());
@@ -94,11 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const seconds = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
         const millis = diff > 0 ? diff % 1000 : 0;
         $years.textContent = years < 10? '0' + years : years;
-        $days.textContent = days < 100 ? (days < 10 ? '0' + days : days) : days;
+        $days.textContent = days < 100 ? (days < 10 ? '00' + days : '0' + days) : days;
         $hours.textContent = hours < 10 ? '0' + hours : hours;
         $minutes.textContent = minutes < 10 ? '0' + minutes : minutes;
         $seconds.textContent = seconds < 10 ? '0' + seconds : seconds;
-        $millis.textContent = millis < 100 ? (millis < 10 ? '0' + millis : millis) : millis;
+        $millis.textContent = millis < 100 ? (millis < 10 ? '00' + millis : '0' + millis) : millis;
         $years.dataset.title = declensionNum(years, ['год', 'года', 'лет']);
         $days.dataset.title = declensionNum(days, ['день', 'дня', 'дней']);
         $hours.dataset.title = declensionNum(hours, ['час', 'часа', 'часов']);
@@ -119,5 +49,5 @@ document.addEventListener('DOMContentLoaded', function () {
     // вызываем функцию countdownTimer
     countdownTimer();
 
-    timerId = setInterval(countdownTimer, 1);
+    timerId = setInterval(countdownTimer, 32);
   });
