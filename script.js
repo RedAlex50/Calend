@@ -51,3 +51,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
     timerId = setInterval(countdownTimer, 32);
   });
+
+
+
+function daysM()
+{
+  var BirthDate = document.getElementById("input-birthdate").value;    
+  var date1 = new Date();
+  var date2 = new Date(BirthDate);;
+  const life_duration = 70*365;
+  var diff = life_duration - Math.floor((date1.getTime() - date2.getTime()) / 1000 / 3600 / 24);
+
+  console.log(diff);
+
+
+  let days_arr = new Array(life_duration);
+  for (let i = 0; i < life_duration; i++) {
+    if (i % 100 == 0) {
+      var matrix = document.createElement("ul");
+      matrix.innerHTML = "<li>";
+      
+    }
+    if (i < diff) {
+      days_arr[i] = 1;
+    }
+    else
+    {
+      days_arr[i] = 0;
+    } 
+    matrix.innerHTML += days_arr[i];
+    if (i % 100 == 99) {
+      matrix.innerHTML += "</li>"
+      here.append(matrix);
+    }
+  }
+}
+
