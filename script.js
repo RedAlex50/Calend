@@ -56,6 +56,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function daysM()
 {
+  const start = new Date().getTime();
+
+
+
   var BirthDate = document.getElementById("input-birthdate").value;    
   var date1 = new Date();
   var date2 = new Date(BirthDate);;
@@ -64,29 +68,32 @@ function daysM()
 
   console.log(diff);
 
-  var matrix = document.createElement("div");
-  matrix.innerHTML = "<p>";
 
-  let days_arr = new Array(life_duration);
+
+  var matrix = document.createElement("p");
+  matrix.setAttribute("id", "here");
+  var here = document.getElementById("here");
+  here.parentNode.replaceChild(matrix, here);
+  
+
 
   for (let i = 0; i < life_duration; i++) {
-    if (i < diff) {
-      days_arr[i] = "# ";
+    if (i < life_duration - diff) {
+      matrix.append("# ");
     }
     else
     {
-      days_arr[i] = "_ ";
+      matrix.append("_ ");
     } 
-
-    matrix.innerHTML += days_arr[i];
   }
 
-  matrix.innerHTML += "</p>";
-  //here.append(matrix);
-  var here = document.getElementById("here");
-  var parentDiv = here.parentNode;
-  parentDiv.replaceChild(matrix, here);
-    
+  const end = new Date().getTime();
+  const worktime = end - start + "ms";
+  var metricP = document.getElementById("metric");
+  var metric = document.createElement("p")
+  metric.setAttribute("id", "metric");
+  metric.append(worktime);
+  metricP.parentNode.replaceChild(metric, metricP);
   }
 
 
