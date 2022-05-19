@@ -697,7 +697,6 @@ function allinputs(){
 // МАТРИЦА
 function daysM()
 {
-  const start = new Date().getTime();
 
   var BirthDate = document.getElementById("input-birthdate").value;    
   var date1 = new Date();
@@ -721,13 +720,6 @@ function daysM()
     } 
   }
 
-  const end = new Date().getTime();
-  const worktime = end - start + "ms";
-  var metricP = document.getElementById("metric");
-  var metric = document.createElement("p")
-  metric.setAttribute("id", "metric");
-  metric.append(worktime);
-  metricP.parentNode.replaceChild(metric, metricP);
 }
 
 

@@ -31,7 +31,7 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <form action="">
+                <form action="" onchange="daysM()">
                     <p>
                         Ваша дата рождения: 
                         <input type="date" id="input-birthdate"> <br>
@@ -155,28 +155,18 @@
     </div>
  
     <hr>
-    <hr>
 
     <div class="container">
         <div class="row">
             <div class="col-7">
                 <h5>
                     Ваш визуализированный жизненный цикл по дням
-                </h5s> 
+                </h5> 
             </div>
-            <div class="col-2">
-                    <button onclick="daysM()">Отобразить</button>
-                </div>
                 
-                <div class="col-2">
-                    Время выполнения:
-                    <p id="metric">00ms</p>
-                </div>
-                
-                <div class="matrix">
-                    <p id="here"></p>
-                </div>
-                
+            <div class="matrix">
+                <p id="here"></p>
+            </div>            
         </div>
     </div>
 
