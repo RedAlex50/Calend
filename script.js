@@ -712,11 +712,11 @@ function daysM()
   
   for (let i = 0; i < life_duration; i++) {
     if (i < life_duration - diff) {
-      matrix.append("# ");
+      matrix.append("■ ");
     }
     else
     {
-      matrix.append("_ ");
+      matrix.append("□ ");
     } 
   }
 

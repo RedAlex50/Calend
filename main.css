@@ -65,3 +65,10 @@ li.timeleft {
     position: absolute;
     right: -20px;
   }
+
+  .c_view {
+    border: 0;
+    background: 0;
+    font-weight: bold;
+    padding: 0;
+  }
