@@ -693,7 +693,6 @@ function allinputs(){
   }
 }
 
-
 // МАТРИЦА
 function daysM()
 {
@@ -722,7 +721,88 @@ function daysM()
 
 }
 
+function weeksM()
+{
 
+  var BirthDate = document.getElementById("input-birthdate").value;    
+  var date1 = new Date();
+  var date2 = new Date(BirthDate);;
+  const life_duration = Math.round(allinputs() / 7);
+  var diff = life_duration - Math.floor((date1.getTime() - date2.getTime()) / 1000 / 3600 / 24 / 7);
+  console.log(diff);
+
+  var matrix = document.createElement("p");
+  matrix.setAttribute("id", "here");
+  var here = document.getElementById("here");
+  here.parentNode.replaceChild(matrix, here);
+  
+
+  for (let i = 0; i < life_duration; i++) {
+    if (i < life_duration - diff) {
+      matrix.append("■ ");
+    }
+    else
+    {
+      matrix.append("□ ");
+    } 
+  }
+
+}
+
+function monthsM()
+{
+
+  var BirthDate = document.getElementById("input-birthdate").value;    
+  var date1 = new Date();
+  var date2 = new Date(BirthDate);;
+  const life_duration = Math.round(allinputs() / 30);
+  var diff = life_duration - Math.floor((date1.getTime() - date2.getTime()) / 1000 / 3600 / 24 / 30);
+  console.log(diff);
+
+  var matrix = document.createElement("p");
+  matrix.setAttribute("id", "here");
+  var here = document.getElementById("here");
+  here.parentNode.replaceChild(matrix, here);
+
+  for (let i = 0; i < life_duration; i++) {
+    if (i < life_duration - diff) {
+      matrix.append("■ ");
+    }
+    else
+    {
+      matrix.append("□ ");
+    } 
+  }
+
+}
+
+function yearsM()
+{
+
+  var BirthDate = document.getElementById("input-birthdate").value;    
+  var date1 = new Date();
+  var date2 = new Date(BirthDate);;
+  const life_duration = Math.round(allinputs() / 365);
+  var diff = life_duration - Math.floor((date1.getTime() - date2.getTime()) / 1000 / 3600 / 24 / 365);
+  console.log(diff);
+
+  var matrix = document.createElement("p");
+  matrix.setAttribute("id", "here");
+  var here = document.getElementById("here");
+  here.parentNode.replaceChild(matrix, here);
+  
+
+  for (let i = 0; i < life_duration; i++) {
+    if (i < life_duration - diff) {
+      matrix.append("■ ");
+    }
+    else
+    {
+      matrix.append("□ ");
+    } 
+  }
+
+}
 
 // ТАЙМЕР
 document.addEventListener('DOMContentLoaded', function () {
