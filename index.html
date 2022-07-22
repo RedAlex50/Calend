@@ -31,7 +31,7 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <form action="" onchange="daysM">
+                <form action="" onchange="outM()">
                     <p>
                         Ваша дата рождения: 
                         <input type="date" id="input-birthdate"> <br>
@@ -158,20 +158,19 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-8">
+            <div class="col-8" onchange="outM()">
                 <h5>
                     Ваш визуализированный жизненный цикл по 
-                    <button class="c_view" id="view_days" onclick="daysM()"> дням</button> 
-                    ,
-                    <button class="c_view" id="view_weeks" onclick="weeksM()"> неделям</button> 
-                    ,
-                    <button class="c_view" id="view_months" onclick="monthsM()"> месяцам</button>
-                    ,
-                    <button class="c_view" id="view_years" onclick="yearsM()"> годам</button>
+                    <select name="matrix" id="m_view" class="c_view">
+                        <option id="view_days" value="view_days"> дням</option> 
+                        <option id="view_weeks" value="view_weeks"> неделям</option> 
+                        <option id="view_months" value="view_months"> месяцам</option>
+                        <option id="view_years" value="view_years"> годам</option>
+                    </select>
                 </h5> 
             </div>
                 
-            <div class="matrix">
+            <div class="matrix_rlz">
                 <p id="here"></p>
             </div>            
         </div>

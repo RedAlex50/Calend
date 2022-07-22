@@ -1,8 +1,11 @@
 body{
-    background: #ffffff;
-  /*  background: linear-gradient(to bottom,  #ffffff 30%,#250000 100%); */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0c57b', endColorstr='#e2947a',GradientType=0 );
- 
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#999999+0,eff7ea+8,eff7ea+92,999999+100 */
+background: #999999; /* Old browsers */
+background: -moz-linear-gradient(left,  #999999 0%, #eff7ea 8%, #eff7ea 92%, #999999 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  #999999 0%,#eff7ea 8%,#eff7ea 92%,#999999 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  #999999 0%,#eff7ea 8%,#eff7ea 92%,#999999 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#999999', endColorstr='#999999',GradientType=1 ); /* IE6-9 */
+
 }
 *{
     box-sizing: border-box;
@@ -68,7 +71,30 @@ li.timeleft {
 
   .c_view {
     border: 0;
-    background: 0;
-    font-weight: bold;
-    padding: 0;
+    background: #EFF7EA;
+    appearance: none;
+    font-weight: bolder;
+    color: #00369b;
+  }
+
+  .daysM{
+    font-size: 11px;
+    letter-spacing: -0.08em;
+    line-height: 0.89em;
+  }
+
+  .weeksM{
+    font-size: 14px;
+    letter-spacing: -0.09em;
+    line-height: 0.9em;
+  }
+
+  .monthsM{
+    font-size: 20px;
+    letter-spacing: -0.03em;
+    line-height: 0.99em;
+  }
+
+  .yearsM{
+    font-size: 36px;
   }

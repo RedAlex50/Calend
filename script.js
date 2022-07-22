@@ -694,6 +694,27 @@ function allinputs(){
 }
 
 // МАТРИЦА
+function outM()
+{
+  
+  var matrix = document.getElementById("m_view").value; 
+  switch (matrix)
+  {
+    case 'view_days':
+      daysM();
+      break;
+    case 'view_weeks':
+      weeksM();
+      break;
+    case 'view_months':
+      monthsM();
+      break;
+    case 'view_years':
+      yearsM();
+      break;
+  }
+}
+
 function daysM()
 {
 
@@ -706,6 +727,7 @@ function daysM()
 
   var matrix = document.createElement("p");
   matrix.setAttribute("id", "here");
+  matrix.setAttribute("class", "daysM");
   var here = document.getElementById("here");
   here.parentNode.replaceChild(matrix, here);
   
@@ -733,6 +755,7 @@ function weeksM()
 
   var matrix = document.createElement("p");
   matrix.setAttribute("id", "here");
+  matrix.setAttribute("class", "weeksM");
   var here = document.getElementById("here");
   here.parentNode.replaceChild(matrix, here);
   
@@ -761,6 +784,7 @@ function monthsM()
 
   var matrix = document.createElement("p");
   matrix.setAttribute("id", "here");
+  matrix.setAttribute("class", "monthsM");
   var here = document.getElementById("here");
   here.parentNode.replaceChild(matrix, here);
 
@@ -784,24 +808,23 @@ function yearsM()
   var date2 = new Date(BirthDate);;
   const life_duration = Math.round(allinputs() / 365);
   var diff = life_duration - Math.floor((date1.getTime() - date2.getTime()) / 1000 / 3600 / 24 / 365);
+  var current = life_duration - Math.floor((date1.getTime() - date2.getTime()) / 1000 / 3600 / 24 % 365);
   console.log(diff);
 
   var matrix = document.createElement("p");
   matrix.setAttribute("id", "here");
+  matrix.setAttribute("class", "yearsM");
   var here = document.getElementById("here");
   here.parentNode.replaceChild(matrix, here);
   
-
-  for (let i = 0; i < life_duration; i++) {
-    if (i < life_duration - diff) {
-      matrix.append("■ ");
-    }
-    else
-    {
-      matrix.append("□ ");
-    } 
+  for (let i = 0; i < life_duration - diff; i++) {
+    matrix.append("⬛ ");
   }
-
+    matrix.append("🔲 ")
+  for (let i = life_duration - diff + 1; i < life_duration; i++) {
+      matrix.append("⬜ ");
+    }
+    
 }
 
 // ТАЙМЕР
